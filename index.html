@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logan Barrett — Director of Behavioral Science & Research</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #08111f;
+    --navy: #0d1830;
+    --deep: #111f3c;
+    --mid: #1b3260;
+    --glass: rgba(255,255,255,0.085);
+    --glass-strong: rgba(255,255,255,0.13);
+    --cyan: #7ddcff;
+    --blue: #8fb4ff;
+    --violet: #c7a6ff;
+    --mint: #a8ffe0;
+    --gold: #ffd88a;
+    --rose: #ffb8d1;
+    --text: #f8fbff;
+    --muted: #c3d0e7;
+    --soft: #eaf4ff;
+    --border: rgba(180,220,255,0.22);
+    --border-warm: rgba(255,216,138,0.28);
+    --shadow: 0 24px 80px rgba(0,0,0,0.28);
+    --radius: 26px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background:
+      radial-gradient(circle at 10% 10%, rgba(125,220,255,0.20), transparent 28%),
+      radial-gradient(circle at 86% 16%, rgba(199,166,255,0.18), transparent 30%),
+      radial-gradient(circle at 48% 90%, rgba(168,255,224,0.11), transparent 32%),
+      linear-gradient(145deg, #08111f 0%, #0d1830 42%, #13244a 100%);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.72;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.42;
+    background-image:
+      linear-gradient(rgba(125,220,255,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(125,220,255,0.06) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 80%);
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.035) 45%, transparent 58%);
+    transform: translateX(-100%);
+    animation: sheen 9s ease-in-out infinite;
+  }
+
+  @keyframes sheen {
+    0%, 55% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8,17,31,0.72);
+    backdrop-filter: blur(22px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.18rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--soft);
+  }
+
+  .nav-links { display: flex; gap: 1.15rem; list-style: none; align-items: center; }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.25s, text-shadow 0.25s;
+  }
+
+  .nav-links a:hover {
+    color: var(--cyan);
+    text-shadow: 0 0 18px rgba(125,220,255,0.45);
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(8,17,31,0.96) 0%, rgba(8,17,31,0.78) 48%, rgba(8,17,31,0.36) 100%),
+      url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=80') center/cover;
+    opacity: 0.96;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 620px;
+    height: 620px;
+    right: -120px;
+    top: 16%;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle, rgba(125,220,255,0.16), transparent 42%),
+      conic-gradient(from 120deg, rgba(125,220,255,0.38), rgba(199,166,255,0.20), rgba(255,216,138,0.28), rgba(168,255,224,0.18), rgba(125,220,255,0.38));
+    filter: blur(2px);
+    opacity: 0.7;
+    animation: rotateGlow 20s linear infinite;
+  }
+
+  @keyframes rotateGlow { to { transform: rotate(360deg); } }
+
+  .hero-lines {
+    position: absolute;
+    top: 0; right: 0;
+    width: 62%;
+    height: 100%;
+    opacity: 0.18;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(125,220,255,0.75) 0, rgba(125,220,255,0.75) 1px, transparent 1px, transparent 58px),
+      repeating-linear-gradient(0deg, rgba(199,166,255,0.55) 0, rgba(199,166,255,0.55) 1px, transparent 1px, transparent 58px);
+    mask-image: linear-gradient(to left, rgba(0,0,0,0.9), transparent 80%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 760px;
+  }
+
+  .hero-eyebrow,
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before,
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 34px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--cyan), transparent);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.8rem, 8vw, 7.3rem);
+    font-weight: 700;
+    line-height: 0.93;
+    letter-spacing: -0.045em;
+    margin-bottom: 1.6rem;
+    color: var(--text);
+  }
+
+  h1 em,
+  h2 em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--cyan), var(--violet), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-sub {
+    font-size: 1.06rem;
+    color: var(--muted);
+    max-width: 610px;
+    line-height: 1.85;
+    margin-bottom: 2.35rem;
+  }
+
+  .hero-cta,
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.94rem 1.85rem;
+    border-radius: 999px;
+    border: 1px solid rgba(125,220,255,0.56);
+    background: linear-gradient(135deg, rgba(125,220,255,0.95), rgba(199,166,255,0.92));
+    color: #07101e;
+    text-decoration: none;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    box-shadow: 0 18px 48px rgba(125,220,255,0.22);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .hero-cta:hover,
+  .contact-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 64px rgba(125,220,255,0.32);
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 2.4rem;
+  }
+
+  .badge,
+  .tag {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--soft);
+    letter-spacing: 0.055em;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+  }
+
+  section { padding: 5.6rem 4rem; position: relative; }
+  .section-inner { max-width: 1080px; margin: 0 auto; position: relative; z-index: 2; }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.1rem, 4vw, 3.35rem);
+    font-weight: 700;
+    line-height: 1.08;
+    margin-bottom: 2.4rem;
+    color: var(--text);
+    letter-spacing: -0.025em;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p,
+  .research-desc,
+  .pillar p,
+  .contact-sub,
+  .timeline-org,
+  .cred-note {
+    color: var(--muted);
+  }
+
+  .about-text p {
+    margin-bottom: 1.2rem;
+    font-size: 0.97rem;
+    line-height: 1.88;
+  }
+
+  .gold-rule {
+    width: 64px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--cyan), var(--violet), transparent);
+    margin: -1rem 0 2rem;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card,
+  .pillar,
+  .cred-item,
+  .research-item,
+  .cv-panel,
+  .recognition-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.045));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .stat-card:hover,
+  .pillar:hover,
+  .cred-item:hover,
+  .research-item:hover,
+  .cv-panel:hover,
+  .recognition-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(125,220,255,0.55);
+    box-shadow: 0 30px 86px rgba(0,0,0,0.34), 0 0 34px rgba(125,220,255,0.09);
+  }
+
+  .stat-card { padding: 1.45rem; min-height: 150px; }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.65rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--cyan), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+    margin-bottom: 0.42rem;
+  }
+
+  .stat-label {
+    font-size: 0.76rem;
+    color: var(--muted);
+    letter-spacing: 0.055em;
+    line-height: 1.45;
+  }
+
+  .expertise-bg,
+  .research-bg {
+    background:
+      radial-gradient(circle at 8% 0%, rgba(125,220,255,0.12), transparent 28%),
+      linear-gradient(180deg, rgba(17,31,60,0.82), rgba(8,17,31,0.66));
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .pillar { padding: 2rem 1.75rem; }
+
+  .pillar-icon {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 1rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(125,220,255,0.16), rgba(199,166,255,0.14));
+    border: 1px solid rgba(125,220,255,0.20);
+    font-size: 1.35rem;
+  }
+
+  .pillar h3,
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    color: var(--text);
+  }
+
+  .pillar h3 {
+    font-size: 1.32rem;
+    font-weight: 700;
+    margin-bottom: 0.58rem;
+  }
+
+  .pillar p { font-size: 0.84rem; line-height: 1.78; }
+
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .cred-item {
+    padding: 1.45rem 1.55rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .cred-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 20px rgba(125,220,255,0.75);
+    margin-top: 0.45rem;
+    flex-shrink: 0;
+  }
+
+  .cred-institution,
+  .timeline-year {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 0.25rem;
+  }
+
+  .cred-degree {
+    font-size: 0.91rem;
+    color: var(--text);
+    line-height: 1.45;
+    font-weight: 500;
+  }
+
+  .research-list { display: flex; flex-direction: column; gap: 1rem; }
+
+  .research-item {
+    padding: 1.7rem 1.85rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.35rem;
+  }
+
+  .research-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.95rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--cyan), var(--violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+    min-width: 3.2rem;
+  }
+
+  .research-body { flex: 1; }
+
+  .research-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.38rem;
+  }
+
+  .research-desc { font-size: 0.84rem; line-height: 1.76; }
+
+  .tag-row { margin-top: 0.7rem; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+  .funding-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .recognition-card {
+    margin-top: 1rem;
+    padding: 1.75rem 2rem;
+  }
+
+  .cv-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+  }
+
+  .cv-panel {
+    padding: 2rem 2.5rem;
+    text-align: left;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .cv-list { display: flex; flex-direction: column; gap: 0.9rem; }
+
+  .cv-line { display: flex; gap: 1rem; align-items: flex-start; font-size: 0.86rem; color: var(--muted); }
+  .cv-line span:first-child { color: var(--cyan); flex-shrink: 0; }
+
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .timeline { position: relative; padding-left: 2rem; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(var(--cyan), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+    padding-left: 2rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -0.42rem;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--cyan);
+    border: 2px solid var(--ink);
+    box-shadow: 0 0 22px rgba(125,220,255,0.75);
+  }
+
+  .timeline-role {
+    font-size: 1.22rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-org { font-size: 0.84rem; }
+
+  .contact-bg {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(125,220,255,0.18), transparent 34%),
+      linear-gradient(180deg, rgba(27,50,96,0.86), rgba(8,17,31,0.96));
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .contact-bg h2 { margin-bottom: 0.75rem; }
+
+  .contact-sub {
+    font-size: 0.92rem;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+  }
+
+  .contact-bg .section-label { justify-content: center; }
+  .contact-bg .section-label::after {
+    content: '';
+    display: block;
+    width: 34px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan));
+  }
+
+  footer {
+    padding: 1.5rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    background: rgba(8,17,31,0.82);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in:nth-child(2) { animation-delay: 0.24s; }
+  .fade-in:nth-child(3) { animation-delay: 0.38s; }
+  .fade-in:nth-child(4) { animation-delay: 0.52s; }
+  .fade-in:nth-child(5) { animation-delay: 0.66s; }
+
+  @media (max-width: 980px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section, .hero { padding: 4.8rem 1.5rem; }
+    .about-grid,
+    .credentials-grid,
+    .timeline-grid,
+    .funding-grid { grid-template-columns: 1fr; }
+    .pillars { grid-template-columns: 1fr 1fr; }
+    .cv-stats { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem 1.5rem; }
+  }
+
+  @media (max-width: 640px) {
+    h1 { font-size: clamp(3.1rem, 18vw, 4.7rem); }
+    .pillars,
+    .stat-grid { grid-template-columns: 1fr; }
+    .research-item { flex-direction: column; gap: 0.8rem; }
+    .cv-panel { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Logan Barrett</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#credentials">Education</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#grants">Grants</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow fade-in">Niagara Falls Memorial Medical Center</p>
+    <h1 class="fade-in">Logan<br><em>Barrett</em></h1>
+    <p class="hero-sub fade-in">
+      Director of Behavioral Science &amp; Research, Family Medicine Residency Program —
+      bridging the science of mind, music, and medicine to advance clinical education and research.
+    </p>
+    <a href="#about" class="hero-cta fade-in">Explore His Work ↓</a>
+    <div class="hero-badges fade-in">
+      <span class="badge">Behavioral Science</span>
+      <span class="badge">Music Cognition</span>
+      <span class="badge">Neuroscience</span>
+      <span class="badge">Clinical Research</span>
+      <span class="badge">Medical Education</span>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">About</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Where Science<br>Meets <em>Healing</em></h2>
+        <div class="gold-rule"></div>
+        <p>
+          Logan Barrett brings a rare interdisciplinary perspective to healthcare — one shaped by years of research at the intersection of music, psychology, and neuroscience. As Director of Behavioral Science and Research at Niagara Falls Memorial Medical Center's Family Medicine Residency, he is advancing the program's educational and research mission with innovative, evidence-based approaches.
+        </p>
+        <p>
+          Prior to joining NFMMC, Logan held research positions at the University at Buffalo, Penn State University, and Durham University, where he led studies connecting auditory perception, cognition, and behavioral outcomes. He concurrently manages the Auditory Perception and Action Lab at the University at Buffalo.
+        </p>
+        <p>
+          Beyond research, Logan has served as a guest lecturer in sociological and psychological principles, a music director and board member for Lake Country Players in Watkins Glen, NY, and a community mentor across academic institutions.
+        </p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-number">3+</div><div class="stat-label">Prestigious Research Institutions</div></div>
+        <div class="stat-card"><div class="stat-number">9</div><div class="stat-label">Academic Degrees & Certifications</div></div>
+        <div class="stat-card"><div class="stat-number">2024</div><div class="stat-label">Appointed Director at NFMMC</div></div>
+        <div class="stat-card"><div class="stat-number">∞</div><div class="stat-label">Passion for Science &amp; Community</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise" class="expertise-bg">
+  <div class="section-inner">
+    <p class="section-label">Areas of Expertise</p>
+    <h2>A Multidisciplinary<br>Research Vision</h2>
+    <div class="pillars">
+      <div class="pillar"><span class="pillar-icon">🧠</span><h3>Behavioral Science</h3><p>Integrating behavioral science frameworks into clinical family medicine education — shaping how residents understand patient behavior, mental health, and therapeutic relationships.</p></div>
+      <div class="pillar"><span class="pillar-icon">🎵</span><h3>Music Cognition &amp; Neuroscience</h3><p>Pioneering research into how music perception shapes cognitive and emotional outcomes, with applications in psychological wellbeing and neurorehabilitation.</p></div>
+      <div class="pillar"><span class="pillar-icon">🔬</span><h3>Auditory Perception</h3><p>Leading the Auditory Perception and Action Lab at the University at Buffalo, investigating how the brain processes sound and translates it into action and affect.</p></div>
+      <div class="pillar"><span class="pillar-icon">📚</span><h3>Medical Education</h3><p>Designing and delivering residency curriculum that bridges psychological science with clinical practice — equipping future physicians with whole-person care skills.</p></div>
+      <div class="pillar"><span class="pillar-icon">🎭</span><h3>Arts &amp; Community</h3><p>Active board member and music director at Lake Country Players; former community advisor fostering arts engagement across academic and community settings.</p></div>
+      <div class="pillar"><span class="pillar-icon">📊</span><h3>Data Science</h3><p>Holds a Certificate in Data Science from Harvard University, applying quantitative methods to behavioral and clinical research questions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="section-inner">
+    <p class="section-label">Education &amp; Credentials</p>
+    <h2>A Foundation Built on<br><em>Rigorous Scholarship</em></h2>
+    <div class="credentials-grid">
+      <div class="cred-item"><div class="cred-dot"></div><div><div class="cred-institution">Memorial University of Newfoundland</div><div class="cred-degree">Doctor of Philosophy (PhD) — Neuroscience</div><div class="cred-note">In progress</div></div></div>
+      <div class="cred-item"><div class="cred-dot"></div><div><div class="cred-institution">University at Buffalo</div><div class="cred-degree">Master of Science — Cognitive Psychology</div><div class="cred-note">In progress</div></div></div>
+      <div class="cred-item"><div class="cred-dot"></div><div><div class="cred-institution">Durham University, UK</div><div class="cred-degree">Master of Arts — Music and Science</div></div></div>
+      <div class="cred-item"><div class="cred-dot"></div><div><div class="cred-institution">Ithaca College</div><div class="cred-degree">Bachelor of Music — Music Cognition &amp; Neuroscience</div></div></div>
+      <div class="cred-item"><div class="cred-dot"></div><div><div class="cred-institution">Penn State University</div><div class="cred-degree">Professional Performance Certificate — Music Education</div></div></div>
+      <div class="cred-item"><div class="cred-dot"></div><div><div class="cred-institution">Harvard University</div><div class="cred-degree">Certificate in Data Science</div></div></div>
+      <div class="cred-item"><div class="cred-dot"></div><div><div class="cred-institution">The Voice Lab Inc.</div><div class="cred-degree">Certificate — Trans/Non-Binary Vocal Pedagogy</div></div></div>
+      <div class="cred-item"><div class="cred-dot"></div><div><div class="cred-institution">University at Buffalo</div><div class="cred-degree">Auditory Perception &amp; Action Lab Manager</div><div class="cred-note">Concurrent appointment</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="research" class="research-bg">
+  <div class="section-inner">
+    <p class="section-label">Research Focus</p>
+    <h2>Advancing the Science of<br><em>Mind &amp; Medicine</em></h2>
+    <div class="research-list">
+      <div class="research-item"><div class="research-num">01</div><div class="research-body"><div class="research-title">Interdisciplinary Research: Music, Psychology &amp; Neuroscience</div><div class="research-desc">Led and contributed to research teams at University at Buffalo, Penn State, and Durham University exploring how musical experience shapes cognitive and neurological outcomes — producing insights with direct clinical relevance.</div></div></div>
+      <div class="research-item"><div class="research-num">02</div><div class="research-body"><div class="research-title">Auditory Perception &amp; Action Research</div><div class="research-desc">As Lab Manager of UB's Auditory Perception and Action Lab, oversees studies examining the links between sound processing, motor response, and affective experience — contributing to the growing field of music neuroscience.</div></div></div>
+      <div class="research-item"><div class="research-num">03</div><div class="research-body"><div class="research-title">Behavioral Science in Clinical Medicine</div><div class="research-desc">At NFMMC, advancing the integration of behavioral science evidence into family medicine residency training — building a generation of physicians equipped to address psychological and social determinants of health.</div></div></div>
+      <div class="research-item"><div class="research-num">04</div><div class="research-body"><div class="research-title">Inclusive Pedagogical Practice</div><div class="research-desc">Bringing specialized expertise in trans/non-binary vocal pedagogy and inclusive arts education to both clinical and academic settings, ensuring care and curriculum that honors patient diversity.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="section-inner">
+    <p class="section-label">Published Works</p>
+    <h2>Peer-Reviewed<br><em>Publications</em></h2>
+    <div class="research-list">
+      <div class="research-item">
+        <div class="research-num">2025</div>
+        <div class="research-body">
+          <div class="research-title">Participant and Musical Diversity in Music Psychology Research</div>
+          <div class="research-desc" style="margin-bottom:0.5rem;">Jakubowski, K., Ahmad, N., Armitage, J., <strong style="color:var(--cyan);font-weight:600;">Barrett, L.</strong>, Edwards, A., Galbo, E., Gómez-Cañón, J. S., Graves, T. A., et al. &amp; Eerola, T.</div>
+          <div class="research-desc"><em>Music &amp; Science</em>, Vol. 8, pp. 1–17. DOI: 10.1177/20592043251317180 &nbsp;|&nbsp; Durham University Music &amp; Science Lab</div>
+          <div class="research-desc" style="margin-top:0.5rem;">A comprehensive survey of participant and musical diversity across three leading music psychology journals (2010–2022), revealing systemic gaps and calling for more inclusive global research practices.</div>
+          <div class="tag-row"><span class="tag">Music Psychology</span><span class="tag">Research Diversity</span><span class="tag">Durham University</span></div>
+        </div>
+      </div>
+      <div class="research-item">
+        <div class="research-num">2024</div>
+        <div class="research-body">
+          <div class="research-title">The Effect of Memory and Presentation Mode in Melodic Error Detection</div>
+          <div class="research-desc" style="margin-bottom:0.5rem;">Nichols, B. E., &amp; <strong style="color:var(--cyan);font-weight:600;">Barrett, L.</strong></div>
+          <div class="research-desc"><em>Journal of Research in Music Education</em>. Published January 31, 2024.</div>
+          <div class="research-desc" style="margin-top:0.5rem;">Investigated the role of tonal working memory in melodic error detection among college musicians, comparing auditory vs. visual conditions — with direct implications for music education pedagogy and auditory cognition.</div>
+          <div class="tag-row"><span class="tag">Music Cognition</span><span class="tag">Working Memory</span><span class="tag">Auditory Perception</span></div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem;color:var(--muted);margin-top:1.5rem;line-height:1.7;">Additional research contributions from Logan's interdisciplinary work at the University at Buffalo, Penn State, and Durham University are ongoing. New publications are forthcoming from his doctoral and residency research programs.</p>
+  </div>
+</section>
+
+<section id="grants" class="expertise-bg">
+  <div class="section-inner">
+    <p class="section-label">Grants &amp; Institutional Funding</p>
+    <h2>Advancing Medicine<br><em>Through Investment</em></h2>
+    <p style="color:var(--muted);font-size:0.92rem;max-width:680px;margin-bottom:2.5rem;line-height:1.85;">Logan's work at NFMMC is embedded within one of the most ambitiously funded community health institutions in Western New York. His role in the Family Medicine Residency directly contributes to a mission backed by landmark state and private investment.</p>
+    <div class="funding-grid">
+      <div class="pillar" style="padding:2.25rem 2rem;"><div class="stat-number">$28.4M</div><h3>NY State Facility Transformation Grant</h3><p>Awarded to NFMMC through New York State's Statewide Health Care Facility Transformation Program IV — part of nearly $300 million in state health investments — to modernize facilities and strengthen emergency and community health services. Logan's residency behavioral science programming is central to NFMMC's expanded clinical mission funded under this award.</p></div>
+      <div class="pillar" style="padding:2.25rem 2rem;"><div class="stat-number">$53M</div><h3>Campus Construction &amp; Renovation Program</h3><p>NFMMC launched a $53 million construction and renovation initiative, including the state-of-the-art Scott Bieler Family Foundation Innovation &amp; Training Center. Logan's behavioral science and residency education work is positioned to operate within this next-generation academic medical environment.</p></div>
+    </div>
+    <div class="recognition-card">
+      <div class="cred-institution">2025 Recognition</div>
+      <div class="research-title">Health Equity Innovation Award — Univera Healthcare</div>
+      <p class="research-desc" style="max-width:760px;">NFMMC was selected as a 2025 recipient of Univera Healthcare's Health Equity Innovation Award, recognizing institutional leadership in eliminating health disparities — a mission Logan advances through integrating behavioral science into every layer of clinical training.</p>
+    </div>
+  </div>
+</section>
+
+<section id="cv">
+  <div class="section-inner" style="text-align:center;">
+    <p class="section-label" style="justify-content:center;">Curriculum Vitae</p>
+    <h2>Full Academic &amp; Professional Record</h2>
+    <p style="color:var(--muted);font-size:0.92rem;max-width:540px;margin:0 auto 2.5rem;line-height:1.85;">Logan's CV spans research, clinical education, community arts leadership, and academic credentials across institutions in the US, UK, and Canada.</p>
+    <div class="cv-stats">
+      <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Peer-Reviewed Publications</div></div>
+      <div class="stat-card"><div class="stat-number">4+</div><div class="stat-label">Research Institutions Represented</div></div>
+      <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Degrees, Certificates &amp; Credentials</div></div>
+    </div>
+    <div class="cv-panel">
+      <div class="cred-institution" style="margin-bottom:1.25rem;">Selected CV Highlights</div>
+      <div class="cv-list">
+        <div class="cv-line"><span>→</span><span>Director of Behavioral Science &amp; Research — NFMMC Family Medicine Residency (2024–present)</span></div>
+        <div class="cv-line"><span>→</span><span>Auditory Perception &amp; Action Lab Manager — University at Buffalo (2024–present)</span></div>
+        <div class="cv-line"><span>→</span><span>Co-author: <em>Music &amp; Science</em>, Vol. 8 (2025) &amp; <em>Journal of Research in Music Education</em> (2024)</span></div>
+        <div class="cv-line"><span>→</span><span>PhD Candidate, Neuroscience — Memorial University of Newfoundland</span></div>
+        <div class="cv-line"><span>→</span><span>MS Candidate, Cognitive Psychology — University at Buffalo</span></div>
+        <div class="cv-line"><span>→</span><span>MA Music &amp; Science — Durham University, UK &nbsp;|&nbsp; BM Music Cognition &amp; Neuroscience — Ithaca College</span></div>
+        <div class="cv-line"><span>→</span><span>Certificate in Data Science — Harvard University &nbsp;|&nbsp; Performance Certificate — Penn State University</span></div>
+        <div class="cv-line"><span>→</span><span>Board Member &amp; Music Director — Lake Country Players, Watkins Glen, NY</span></div>
+        <div class="cv-line"><span>→</span><span>Guest Lecturer — Sociological &amp; Psychological Principles for Arts Research Students</span></div>
+      </div>
+      <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border);font-size:0.8rem;color:var(--muted);">
+        For a full curriculum vitae or to discuss research collaboration, please reach out via the contact section below.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <div class="section-inner">
+    <p class="section-label">Career</p>
+    <h2>Professional Journey</h2>
+    <div class="timeline-grid">
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-year">2024 — Present</div><div class="timeline-role">Director of Behavioral Science &amp; Research</div><div class="timeline-org">Niagara Falls Memorial Medical Center — Family Medicine Residency</div></div>
+        <div class="timeline-item"><div class="timeline-year">2024 — Present</div><div class="timeline-role">Auditory Perception &amp; Action Lab Manager</div><div class="timeline-org">University at Buffalo</div></div>
+        <div class="timeline-item"><div class="timeline-year">Prior</div><div class="timeline-role">Research Associate</div><div class="timeline-org">Penn State University &amp; Durham University</div></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-year">Ongoing</div><div class="timeline-role">Guest Lecturer</div><div class="timeline-org">Sociological &amp; Psychological Principles for Arts Research Students</div></div>
+        <div class="timeline-item"><div class="timeline-year">Ongoing</div><div class="timeline-role">Board Member &amp; Music Director</div><div class="timeline-org">Lake Country Players — Watkins Glen, NY</div></div>
+        <div class="timeline-item"><div class="timeline-year">Prior</div><div class="timeline-role">Theory &amp; Aural Skills Tutor</div><div class="timeline-org">Onondaga Community College</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-bg">
+  <div class="section-inner">
+    <p class="section-label">Contact</p>
+    <h2>Get in Touch</h2>
+    <p class="contact-sub">For research collaborations, speaking engagements, or inquiries about the Family Medicine Residency program.</p>
+    <a href="https://nfmmc.org" target="_blank" class="contact-link">Visit NFMMC.org →</a>
+  </div>
+</section>
+
+<footer>
+  <span>Logan Barrett — Niagara Falls Memorial Medical Center</span>
+  <span>Director of Behavioral Science &amp; Research</span>
+</footer>
+
+</body>
+</html>
